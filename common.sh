@@ -74,6 +74,14 @@ maven_setup(){
 
 }
 
+python_setup(){
+    dnf install python3 gcc python3-devel -y &>>$LOG_FILE
+    VALIDATE $? "Install Python3 packages"
+
+    pip3 install -r requirements.txt &>> $LOG_FILE
+    VALIDATE $? "Installing dependencies"
+}
+
 systemd_setup(){
     cp $SCRIPT_DIR/$APP_NAME.service /etc/systemd/system/$APP_NAME.service
     VALIDATE $? "adding application to the systemctl services"
