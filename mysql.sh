@@ -1,6 +1,9 @@
 #!/bin/bash
 
 source ./common.sh
+APP_NAME=mysql
+
+check_root
 
 PACKAGE_INSTALLER mysql-server
 

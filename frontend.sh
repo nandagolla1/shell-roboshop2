@@ -3,6 +3,8 @@
 source ./common.sh
 APP_NAME=frontend
 
+check_root
+
 dnf module disable nginx -y &>> $LOG_FILE
 VALIDATE $? "Disabling default nginx package"
 

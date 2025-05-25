@@ -63,6 +63,17 @@ nodejs_setup(){
     VALIDATE $? "installing all dependencies and libraries required to the application"
 }
 
+maven_setup(){
+    PACKAGE_INSTALLER maven
+
+    mvn clean package  &>>$LOG_FILE
+    VALIDATE $? "Packaging the shipping application"
+
+    mv target/shipping-1.0.jar shipping.jar  &>>$LOG_FILE
+    VALIDATE $? "installing all dependencies and libraries required to the application"
+
+}
+
 systemd_setup(){
     cp $SCRIPT_DIR/$APP_NAME.service /etc/systemd/system/$APP_NAME.service
     VALIDATE $? "adding application to the systemctl services"
