@@ -44,7 +44,7 @@ aws ec2 describe-instances \
       "ResourceRecordSet": {
         "Name": "${FQDN}",
         "Type": "A",
-        "TTL": 300,
+        "TTL": 1,
         "ResourceRecords": [
           {
             "Value": "${IP}"
