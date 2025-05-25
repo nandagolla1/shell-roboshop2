@@ -2,6 +2,8 @@
 source ./common.sh
 APP_NAME=mongodb
 
+check_root
+
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "adding mongo repo"
 
@@ -18,3 +20,5 @@ VALIDATE $? "Editing MongoDB conf file for remote connections"
 
 systemctl restart mongod &>>$LOG_FILE
 VALIDATE $? "Restarting MongoDB"
+
+print_time
